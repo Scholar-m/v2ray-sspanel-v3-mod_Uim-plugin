@@ -1,0 +1,30 @@
+# 自定义 Clash 配置示例
+---
+General:
+  port: 7890
+  socks-port: 7891
+  redir-port: 7892
+  allow-lan: true
+  mode: Rule
+  log-level: silent
+  external-controller: '0.0.0.0:9090'
+  secret: ''
+  dns:
+    enable: true
+    ipv6: false
+    # listen: 0.0.0.0:53
+    # enhanced-mode: redir-host
+    nameserver:
+      - 1.2.4.8
+      - 223.5.5.5
+      - 114.114.114.114
+      - tls://dns.rubyfish.cn:853
+    fallback:
+      - tls://dns.rubyfish.cn:853
+      - tls://dns.google
+Rule:
+  # 加载远程规则，仅支持一个远程规则
+  # 使用神机规则或从其他完整配置中获取规则，需为标准 YAML 格式
+  # source: https://github.com/ConnersHua/Profiles/raw/master/Clash/Pro.yaml
+  # 或自行提供规则
+  source: https://www.scrssr.com/ssr-download/sh/scrssr.txt
